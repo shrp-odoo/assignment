@@ -22,8 +22,8 @@
                     <field name="dock_id" placeholder="Dock"/>
                     <field name="vehicle" placeholder="vehicle"/>
                     <field name="vehicle_category" placeholder="Semitruck"/>
-                    <field name="weight" widget="progressbar" invisible="['vehicle_category', '=', False]"/>
-                    <field name="volume" widget="progressbar" invisible="['vehicle_category', '=', False]"/>
+                    <field name="weight" widget="progressbar" invisible="not vehicle_category"/>
+                    <field name="volume" widget="progressbar" invisible="not vehicle_category"/>
                 </xpath>
             </field>
         </record>
@@ -34,9 +34,9 @@
             <field name="arch" type="xml">
                 <graph string="Batch Transfer">
                     <field name="scheduled_date"/>
-                    <field name="vehicle"/>
-                    <field name="weight"/>
-                    <field name="volume"/>
+                    <!-- <field name="vehicle"/> -->
+                    <!-- <field name="weight"/>
+                    <field name="volume"/> -->
                     <field name="vehicle_category"/>
                 </graph>
             </field>
@@ -77,7 +77,7 @@
         </record>
 
         <record id="stock_picking_batch" model="ir.actions.act_window.view">
-            <field name="sequence" eval="10"/>
+            <!-- <field name="sequence" eval="10"/> -->
             <field name="view_mode">graph</field>
             <field name="view_id" ref="stock_module.stock_picking_batch_graph"/>
             <field name="act_window_id" ref="stock_picking_batch.stock_picking_batch_action"/>

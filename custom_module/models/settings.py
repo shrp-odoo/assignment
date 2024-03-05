@@ -5,5 +5,5 @@ from odoo import fields, models
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
-    module_stock_trasport = fields.Boolean(string="Stock Transport")
+    stock_module = fields.Boolean(string="Stock Transport")
     

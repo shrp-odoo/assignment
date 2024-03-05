@@ -5,7 +5,6 @@ from odoo import fields, models
 class StockTransportDock(models.Model):
     _name = "stock.transport.dock"
     _description = "Stock Transport Dock"
-    _order = "name"
 
     name = fields.Char("Dock Name", required=True)
 

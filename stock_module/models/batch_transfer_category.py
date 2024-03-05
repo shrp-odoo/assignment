@@ -9,9 +9,8 @@ class StockPicking(models.Model):
 
     @api.depends("product_id")
     def _compute_volume(self):
-
         v = 0
-        for product in self.product_id:
-            v += product.volume
+        for move_line in self.move_line_ids:
+            v += move_line.product_id.volume
 
         self.volume = v
