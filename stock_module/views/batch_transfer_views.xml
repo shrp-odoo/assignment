@@ -22,11 +22,12 @@
                     <field name="dock_id" placeholder="Dock"/>
                     <field name="vehicle" placeholder="vehicle"/>
                     <field name="vehicle_category" placeholder="Semitruck"/>
-                    <field name="weight" widget="progressbar" invisible="not vehicle_category"/> 
-                    <field name="volume" widget="progressbar" invisible="not vehicle_category"/>
-                        <!-- <table class="table">
+                        <table class="table">
                             <tbody>
-                                <tr>
+                                <tr invisible="not vehicle_category">
+                                    <td> 
+                                        <label for="weight" strig="Weight"></label>
+                                    </td>
                                     <td style="width: 50%;">
                                         <field name="total_weight" string="Total Weight"/>
                                     </td>
@@ -34,8 +35,19 @@
                                         <field name="weight" string="Weight" widget="progressbar"/>
                                     </td>
                                 </tr>
+                                <tr invisible="not vehicle_category">
+                                    <td>
+                                        <label for="volume" string="Volume"></label>
+                                    </td>
+                                    <td style="width: 50%;">
+                                        <field name="total_volume" string="Total Volume"/>
+                                    </td>
+                                    <td style="width: 50%;">
+                                        <field name="volume" string="Volume" widget="progressbar"/>
+                                    </td>
+                                </tr>
                             </tbody>
-                        </table> -->
+                        </table>
                 </xpath>
             </field>
         </record>
