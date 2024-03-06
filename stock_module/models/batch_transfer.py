@@ -13,6 +13,20 @@ class StockPickingBatch(models.Model):
     start_date = fields.Date(string="Start Date", compute="_compute_start_end_date", store=True)
     end_date = fields.Date(string="End Date", compute="_compute_start_end_date", store=True)
     dock_id = fields.Many2one(string="Dock id", comodel_name="stock.transport.dock")
+    transfers_ids = fields.Float(string="Transfers", compute="_compute_transfer", store=True)
+    lines_ids = fields.Float(string="Lines", compute="_compute_lines", store=True)
+
+    @api.depends('picking_ids')
+    def _compute_lines(self):
+        for record in self:
+            total_length = len(record.picking_ids)
+            record.lines_ids = total_length
+
+    @api.depends('move_line_ids')
+    def _compute_transfer(self):
+        for record in self:
+            total_length = len(record.move_line_ids)
+            record.transfers_ids = total_length
 
     @api.depends("create_date")
     def _compute_start_end_date(self):
