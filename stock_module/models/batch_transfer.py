@@ -8,8 +8,8 @@ class StockPickingBatch(models.Model):
 
     vehicle = fields.Many2one(string="Vehicle", comodel_name="fleet.vehicle")
     vehicle_category = fields.Many2one(string="Category", comodel_name="fleet.vehicle.model.category")
-    weight = fields.Float(string="Weight(kg)", compute="_compute_weight", store=True)
-    volume = fields.Float(string="Volume", compute="_compute_volume", store=True)
+    weight = fields.Float(string="Weight (kg)", compute="_compute_weight", store=True)
+    volume = fields.Float(string="Volume (m3)", compute="_compute_volume", store=True)
     start_date = fields.Date(string="Start Date", compute="_compute_start_end_date", store=True)
     end_date = fields.Date(string="End Date", compute="_compute_start_end_date", store=True)
     dock_id = fields.Many2one(string="Dock id", comodel_name="stock.transport.dock")

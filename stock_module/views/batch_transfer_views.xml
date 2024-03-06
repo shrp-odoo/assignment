@@ -34,9 +34,6 @@
             <field name="arch" type="xml">
                 <graph string="Batch Transfer">
                     <field name="scheduled_date"/>
-                    <!-- <field name="vehicle"/> -->
-                    <!-- <field name="weight"/>
-                    <field name="volume"/> -->
                     <field name="vehicle_category"/>
                 </graph>
             </field>
@@ -55,7 +52,6 @@
                     default_group_by="vehicle,dock_id"
                 >
                     <field name="state"/>
-                    <!-- <field name="vehicle_category"/> -->
                     <field name="weight"/>
                     <field name="volume"/>
 
@@ -77,7 +73,6 @@
         </record>
 
         <record id="stock_picking_batch" model="ir.actions.act_window.view">
-            <!-- <field name="sequence" eval="10"/> -->
             <field name="view_mode">graph</field>
             <field name="view_id" ref="stock_module.stock_picking_batch_graph"/>
             <field name="act_window_id" ref="stock_picking_batch.stock_picking_batch_action"/>
