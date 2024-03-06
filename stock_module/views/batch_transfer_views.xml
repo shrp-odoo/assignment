@@ -22,8 +22,20 @@
                     <field name="dock_id" placeholder="Dock"/>
                     <field name="vehicle" placeholder="vehicle"/>
                     <field name="vehicle_category" placeholder="Semitruck"/>
-                    <field name="weight" widget="progressbar" invisible="not vehicle_category"/>
+                    <field name="weight" widget="progressbar" invisible="not vehicle_category"/> 
                     <field name="volume" widget="progressbar" invisible="not vehicle_category"/>
+                        <!-- <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 50%;">
+                                        <field name="total_weight" string="Total Weight"/>
+                                    </td>
+                                    <td style="width: 50%;">
+                                        <field name="weight" string="Weight" widget="progressbar"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> -->
                 </xpath>
             </field>
         </record>
@@ -49,6 +61,7 @@
                     string="Batch Picking"
                     decoration-info="state == 'draft'"
                     decoration-success="state == 'in_progress'"
+                    color="vehicle_category"
                     default_group_by="vehicle,dock_id"
                 >
                     <field name="state"/>
